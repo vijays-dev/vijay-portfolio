@@ -41,77 +41,77 @@
         <p>WhatsApp: <a href="https://wa.me/919940345958" target="_blank">+91-9940345958</a></p>
     </div>
 
-    <!-- Skills Section with Graph -->
-    <div class="container mt-5">
-        <h2>My Skills</h2>
-        <canvas id="skillsChart"></canvas>
-    </div>
+   <!-- Skills Section with Graph -->
+<div class="container mt-5">
+    <h2>My Skills</h2>
+    <canvas id="skillsChart"></canvas>
+</div>
 
-    <!-- Services Section -->
-    <div class="container mt-5">
-        <h2>Services</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>.NET Core Development</h5>
-                        <p>Building robust web applications using .NET Core and Entity Framework.</p>
-                    </div>
+<!-- Services Section -->
+<div class="container mt-5">
+    <h2>Services</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>.NET Core Development</h5>
+                    <p>Building robust web applications using .NET Core and Entity Framework.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Angular Frontend</h5>
-                        <p>Developing responsive Angular applications with RxJS & State Management.</p>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Angular Frontend</h5>
+                    <p>Developing responsive Angular applications with RxJS & State Management.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Azure Cloud Services</h5>
-                        <p>Deploying applications on Azure with CI/CD, Service Bus, and APIM.</p>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Azure & SQL Server</h5>
+                    <p>Deploying applications on Azure with SQL Server, CI/CD, Service Bus, and APIM.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Contact Form -->
-    <div class="container mt-5">
-        <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="mb-3">
-                <label>Name</label>
-                <input type="text" class="form-control" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label>Email</label>
-                <input type="email" class="form-control" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label>Message</label>
-                <textarea class="form-control" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-    </div>
+<!-- Contact Form -->
+<div class="container mt-5">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label>Message</label>
+            <textarea class="form-control" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
 
-    <script>
-        // Chart.js for skills graph
-        var ctx = document.getElementById('skillsChart').getContext('2d');
-        var skillsChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['.NET Core', 'Angular', 'Azure', 'SASS', 'Bootstrap', 'Bug Fixing'],
-                datasets: [{
-                    label: 'Expertise Level',
-                    data: [100, 99, 95, 95, 90, 100],
-                    backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', '#6f42c1']
-                }]
-            }
-        });
-    </script>
+<script>
+    // Chart.js for skills graph
+    var ctx = document.getElementById('skillsChart').getContext('2d');
+    var skillsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['.NET Core', 'Angular', 'Azure', 'SQL Server', 'Bootstrap', 'Bug Fixing'],
+            datasets: [{
+                label: 'Expertise Level',
+                data: [100, 98, 90, 100, 89, 100],
+                backgroundColor: ['#007bff', '#28a745', '#dc3545', '#6c757d', '#17a2b8', '#6f42c1']
+            }]
+        }
+    });
+</script>
 </body>
 </html>
