@@ -1,117 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vijay - Freelance Developer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .hero { background: #007bff; color: white; padding: 50px 0; text-align: center; }
-        .container { max-width: 900px; margin: auto; }
-        .card { margin: 20px 0; }
-        canvas { max-width: 100%; }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vijay – Full-Stack .NET & Cloud Engineer</title>
+<meta name="description" content="Full-stack developer with 13.5 years of experience in .NET Core, C#, Azure, Angular, and DevOps. Available for senior engineering and architecture roles."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:       #070C18;
+    --bg2:      #0D1425;
+    --bg3:      #111B30;
+    --cyan:     #00D4FF;
+    --cyan2:    #00A8CC;
+    --violet:   #7C6EFA;
+    --green:    #00E5A0;
+    --text:     #E8EDF5;
+    --muted:    #7A8BA6;
+    --border:   rgba(0,212,255,0.15);
+    --card:     rgba(13,20,37,0.85);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2.5rem;
+    background: rgba(7,12,24,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 1.2rem;
+    color: var(--cyan);
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.05em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 7rem 2.5rem 4rem;
+  }
+  #constellation {
+    position: absolute; inset: 0;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 700px;
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--cyan);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 2rem; height: 1px;
+    background: var(--cyan);
+  }
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title span { color: var(--cyan); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--muted);
+    max-width: 560px; margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--cyan); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: var(--muted);
+    letter-spacing: 0.05em; margin-top: 0.2rem;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600; font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    background: var(--cyan); color: #070C18;
+    border: none; border-radius: 6px;
+    text-decoration: none; cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,0.35); }
+  .btn-outline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px; text-decoration: none;
+    transition: border-color .2s, color .2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  /* ── SECTION LAYOUT ── */
+  section { padding: 5rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--cyan);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+  .section-title span { color: var(--cyan); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .about-text p {
+    color: var(--muted); line-height: 1.8;
+    margin-bottom: 1.2rem; font-size: 0.97rem;
+  }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+  .highlight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    transition: border-color .2s;
+  }
+  .highlight-card:hover { border-color: rgba(0,212,255,0.4); }
+  .highlight-icon {
+    font-size: 1.4rem; margin-top: 0.1rem; flex-shrink: 0;
+  }
+  .highlight-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.92rem; font-weight: 600; margin-bottom: 0.25rem;
+  }
+  .highlight-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    transition: border-color .2s, transform .2s;
+  }
+  .skill-group:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-3px); }
+  .skill-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--cyan);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .skill-group-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.78rem; font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px; letter-spacing: 0.02em;
+    background: rgba(0,212,255,0.07);
+    border: 1px solid rgba(0,212,255,0.15);
+    color: var(--text);
+    transition: background .15s;
+  }
+  .tag:hover { background: rgba(0,212,255,0.15); }
+  .tag.accent { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.4); color: var(--cyan); }
+  .tag.violet { background: rgba(124,110,250,0.1); border-color: rgba(124,110,250,0.3); color: #A89FFB; }
+  .tag.green  { background: rgba(0,229,160,0.08); border-color: rgba(0,229,160,0.25); color: #00E5A0; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg2); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, var(--cyan), transparent);
+  }
+  .tl-item {
+    position: relative; margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -2.4rem; top: 0.35rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(0,212,255,0.2);
+  }
+  .tl-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+    letter-spacing: 0.05em; margin-bottom: 0.5rem;
+  }
+  .tl-role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem; font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .tl-company {
+    font-size: 0.9rem; color: var(--cyan);
+    font-weight: 500; margin-bottom: 0.75rem;
+  }
+  .tl-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .tl-tag {
+    font-size: 0.73rem; padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: rgba(0,212,255,0.06);
+    border: 1px solid rgba(0,212,255,0.12);
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--bg); text-align: center; }
+  .contact-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 4rem 3rem;
+    max-width: 640px; margin: 0 auto;
+  }
+  .contact-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .contact-card p { color: var(--muted); margin-bottom: 2rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--muted); text-decoration: none;
+    transition: all .2s;
+  }
+  .contact-link:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 2.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px){
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 3.5rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { gap: 1.5rem; }
+  }
+  @media(max-width:480px){
+    .nav-links { display: none; }
+  }
+  @media(prefers-reduced-motion: reduce){
+    .reveal { opacity: 1; transform: none; transition: none; }
+    canvas { display: none; }
+  }
+</style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>.NET Core | Angular | Azure | SASS | Bootstrap | Web Development | Bug Fixing</p>
-    </section>
 
-    <!-- About Section -->
-    <div class="container mt-5">
-        <h2>About Me</h2>
-        <p>I'm <b>Vijay</b>, a freelance full-stack developer specializing in .NET Core, Angular, and Azure.</p>
-        <p>  Experienced Full Stack Developer with 12.8 years of expertise in .NET Core,
- C#, ASP.NET, SQL Server, Angular, and Azure. Skilled in designing,
- developing, and optimizing scalable web applications with a focus on
- performance, security, and cloud-native solutions.
- Strong background in system architecture, design patterns, and Agile
- methodologies (Scrum/Kanban), with expertise in requirement gathering,
- sprint planning, and backlog grooming. Proficient in Web API,
- Microservices, CI/CD, automation testing (Coded UI), and cloud
- deployments.
- Proven ability to lead teams, drive innovation, and deliver high-quality
- solutions in fast-paced, Agile environments. Passionate about building
- user-centric applications and optimizing software performance </p>
-        <p>Email: <a href="mailto:vijaysm09@gmail.com">vijaysm09@gmail.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/919940345958" target="_blank">+91-9940345958</a></p>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">V.dev</div>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="constellation"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Available for senior / lead roles</div>
+    <h1 class="hero-title">
+      Vijay<br/>
+      <span>Full-Stack</span><br/>
+      .NET &amp; Cloud Engineer
+    </h1>
+    <p class="hero-sub">
+      13.5 years building scalable, secure cloud-native applications on .NET Core, Azure, and Angular — from system architecture to CI/CD pipelines and microservices.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">13.5</span><span class="stat-label">Years experience</span></div>
+      <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Core technologies</span></div>
+      <div class="stat-item"><span class="stat-num">Azure</span><span class="stat-label">Cloud platform</span></div>
     </div>
-
-   <!-- Skills Section with Graph -->
-<div class="container mt-5">
-    <h2>My Skills</h2>
-    <canvas id="skillsChart"></canvas>
-</div>
-
-<!-- Services Section -->
-<div class="container mt-5">
-    <h2>Services</h2>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5>.NET Core Development</h5>
-                    <p>Building robust web applications using .NET Core and Entity Framework.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5>Angular Frontend</h5>
-                    <p>Developing responsive Angular applications with RxJS & State Management.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5>Azure & SQL Server</h5>
-                    <p>Deploying applications on Azure with SQL Server, CI/CD, Service Bus, and APIM.</p>
-                </div>
-            </div>
-        </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get in touch
+      </a>
+      <a href="#skills" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        View skills
+      </a>
     </div>
-</div>
+  </div>
+</section>
 
-<!-- Contact Form -->
-<div class="container mt-5">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/xvgkqpww" method="POST">
-        <div class="mb-3">
-            <label>Name</label>
-            <input type="text" class="form-control" name="name" required>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Building systems that <span>scale</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Full-stack developer with 13.5 years of experience specialising in .NET Core, C#, ASP.NET, SQL Server, Angular, Azure, and DevOps. I design and develop scalable, secure, cloud-native applications from the ground up.
+        </p>
+        <p>
+          My expertise spans system architecture, design patterns, REST API standards, Web API, microservices, CI/CD, Docker, AKS, Redis, EF Core, App Insights, Blob Storage, Key Vault, Azure Service Bus, and RabbitMQ.
+        </p>
+        <p>
+          I'm experienced in Agile (Scrum/Kanban), requirement analysis, and leading cross-functional teams to deliver high-quality, user-focused software on time.
+        </p>
+      </div>
+      <div class="about-highlights reveal">
+        <div class="highlight-card">
+          <div class="highlight-icon">🏗️</div>
+          <div>
+            <h4>System Architecture</h4>
+            <p>Designing scalable microservices, event-driven systems, and cloud-native architectures using Azure AKS and service bus patterns.</p>
+          </div>
         </div>
-        <div class="mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email" required>
+        <div class="highlight-card">
+          <div class="highlight-icon">☁️</div>
+          <div>
+            <h4>Azure Cloud Engineering</h4>
+            <p>App Services, AKS, Service Bus, Blob Storage, Key Vault, App Insights — end-to-end Azure expertise including GitHub Copilot integration.</p>
+          </div>
         </div>
-        <div class="mb-3">
-            <label>Message</label>
-            <textarea class="form-control" name="message" rows="4" required></textarea>
+        <div class="highlight-card">
+          <div class="highlight-icon">🔁</div>
+          <div>
+            <h4>DevOps &amp; CI/CD</h4>
+            <p>Automating delivery pipelines with Azure DevOps, Jenkins, Docker, Kubernetes, and PowerShell scripting for zero-downtime deployments.</p>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
-</div>
+        <div class="highlight-card">
+          <div class="highlight-icon">👥</div>
+          <div>
+            <h4>Team Leadership</h4>
+            <p>Led Agile (Scrum/Kanban) teams through full product lifecycles — from requirement analysis to production release.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">Technical Skills</p>
+    <h2 class="section-title">What I <span>work with</span></h2>
+    <div class="skills-grid reveal">
+
+      <div class="skill-group">
+        <div class="skill-group-label">Backend</div>
+        <div class="skill-tags">
+          <span class="tag accent">.NET Core</span>
+          <span class="tag accent">C#</span>
+          <span class="tag">ASP.NET</span>
+          <span class="tag">MVC</span>
+          <span class="tag">Web API</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">LINQ</span>
+          <span class="tag">EF Core</span>
+          <span class="tag">Redis</span>
+          <span class="tag">WCF</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Frontend</div>
+        <div class="skill-tags">
+          <span class="tag accent">Angular</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Redux</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">jQuery</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Bootstrap</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Cloud &amp; Azure</div>
+        <div class="skill-tags">
+          <span class="tag violet">App Services</span>
+          <span class="tag violet">AKS</span>
+          <span class="tag violet">Service Bus</span>
+          <span class="tag violet">RabbitMQ</span>
+          <span class="tag violet">App Insights</span>
+          <span class="tag violet">Blob Storage</span>
+          <span class="tag violet">Key Vault</span>
+          <span class="tag violet">GitHub Copilot</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">DevOps &amp; CI/CD</div>
+        <div class="skill-tags">
+          <span class="tag green">Azure DevOps</span>
+          <span class="tag green">Docker</span>
+          <span class="tag green">Kubernetes</span>
+          <span class="tag green">Jenkins</span>
+          <span class="tag green">Git</span>
+          <span class="tag">PowerShell</span>
+          <span class="tag">Shell Script</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Databases</div>
+        <div class="skill-tags">
+          <span class="tag accent">SQL Server</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Oracle</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Practices &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="tag">Design Patterns</span>
+          <span class="tag">System Architecture</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Agile/Scrum</span>
+          <span class="tag">Kanban</span>
+          <span class="tag">Hangfire</span>
+          <span class="tag">SSRS</span>
+          <span class="tag">RDLC</span>
+          <span class="tag">Telerik</span>
+          <span class="tag">Python</span>
+          <span class="tag">Coded UI</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">13.5 years of <span>engineering</span></h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">Current · Relevantz</div>
+        <div class="tl-role">Senior Full-Stack Developer / Tech Lead</div>
+        <div class="tl-company">Relevantz Technology Services</div>
+        <p class="tl-desc">
+          Designing and developing cloud-native enterprise applications on .NET Core and Azure. Leading architecture decisions, code reviews, and CI/CD pipeline design. Driving microservices adoption using Docker, AKS, and Azure Service Bus. Mentoring junior developers and managing Agile delivery cycles.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag">.NET Core</span><span class="tl-tag">Azure AKS</span>
+          <span class="tl-tag">Angular</span><span class="tl-tag">Microservices</span>
+          <span class="tl-tag">Azure DevOps</span><span class="tl-tag">Docker</span>
+          <span class="tl-tag">EF Core</span><span class="tl-tag">Redis</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">Previous Experience · 13+ years total</div>
+        <div class="tl-role">Full-Stack .NET Developer</div>
+        <div class="tl-company">Enterprise Software Delivery</div>
+        <p class="tl-desc">
+          Built end-to-end web applications using ASP.NET MVC, Web API, Angular, and SQL Server. Implemented RESTful APIs, authentication/authorisation, EF/EF Core data access layers, and reporting modules using SSRS and RDLC. Transitioned on-premise applications to Azure cloud with Blob Storage, Key Vault, and App Insights integration.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag">ASP.NET MVC</span><span class="tl-tag">Web API</span>
+          <span class="tl-tag">SQL Server</span><span class="tl-tag">Angular</span>
+          <span class="tl-tag">Azure</span><span class="tl-tag">SSRS</span>
+          <span class="tl-tag">WCF</span><span class="tl-tag">jQuery</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">Earlier career</div>
+        <div class="tl-role">.NET Developer</div>
+        <div class="tl-company">Software Development</div>
+        <p class="tl-desc">
+          Developed business applications in C#, ASP.NET, and SQL Server. Gained deep experience in design patterns, LINQ, stored procedures, and reporting. Contributed to test automation using Coded UI. Collaborated in Agile teams with Jenkins-based CI pipelines.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag">C#</span><span class="tl-tag">ASP.NET</span>
+          <span class="tl-tag">SQL Server</span><span class="tl-tag">LINQ</span>
+          <span class="tl-tag">Jenkins</span><span class="tl-tag">Coded UI</span>
+          <span class="tl-tag">Design Patterns</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-card reveal">
+      <h2>Let's build something <span style="color:var(--cyan)">great</span></h2>
+      <p>Open to senior engineering, tech lead, and solution architect roles. Based in Chennai, India.</p>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email me
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/yourusername" class="contact-link" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Built with HTML &amp; CSS · Hosted on GitHub Pages · Chennai, India</span>
+</footer>
 
 <script>
-    // Chart.js for skills graph
-    var ctx = document.getElementById('skillsChart').getContext('2d');
-    var skillsChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['.NET Core', 'Angular', 'Azure', 'SQL Server', 'Bootstrap', 'Bug Fixing'],
-            datasets: [{
-                label: 'Expertise Level',
-                data: [100, 98, 90, 100, 89, 100],
-                backgroundColor: ['#007bff', '#28a745', '#dc3545', '#6c757d', '#17a2b8', '#6f42c1']
-            }]
-        }
+/* ── CONSTELLATION CANVAS ── */
+const canvas = document.getElementById('constellation');
+const ctx = canvas.getContext('2d');
+let nodes = [], W, H, animId;
+
+function resize(){
+  W = canvas.width  = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
+}
+
+function initNodes(n){
+  nodes = [];
+  for(let i=0;i<n;i++){
+    nodes.push({
+      x: Math.random()*W,
+      y: Math.random()*H,
+      vx: (Math.random()-.5)*0.3,
+      vy: (Math.random()-.5)*0.3,
+      r: Math.random()*2+1
     });
+  }
+}
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  // edges
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<160){
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=`rgba(0,212,255,${(1-d/160)*0.18})`;
+        ctx.lineWidth=0.8;
+        ctx.stroke();
+      }
+    }
+  }
+  // dots
+  nodes.forEach(n=>{
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(0,212,255,0.55)';
+    ctx.fill();
+    // update
+    n.x+=n.vx; n.y+=n.vy;
+    if(n.x<0||n.x>W) n.vx*=-1;
+    if(n.y<0||n.y>H) n.vy*=-1;
+  });
+  animId = requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize',()=>{
+  cancelAnimationFrame(animId);
+  resize();
+  initNodes(55);
+  draw();
+});
+
+resize(); initNodes(55); draw();
+
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
