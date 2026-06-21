@@ -3,367 +3,266 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Vijay – Full-Stack .NET & Cloud Engineer</title>
-<meta name="description" content="Full-stack developer with 13.5 years of experience in .NET Core, C#, Azure, Angular, and DevOps. Available for senior engineering and architecture roles."/>
+<title>Vijay S – Senior Lead .NET Full-Stack Engineer</title>
+<meta name="description" content="Vijay S – Full-stack .NET developer with 13.5 years of experience in .NET Core, C#, Azure, Angular, AKS, Microservices, and DevOps."/>
+<meta name="keywords" content="Vijay S, .NET Core, C#, Angular, Azure, AKS, Microservices, Full Stack Developer, Chennai, DevOps, Docker, Kubernetes"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg:       #070C18;
-    --bg2:      #0D1425;
-    --bg3:      #111B30;
-    --cyan:     #00D4FF;
-    --cyan2:    #00A8CC;
-    --violet:   #7C6EFA;
-    --green:    #00E5A0;
-    --text:     #E8EDF5;
-    --muted:    #7A8BA6;
-    --border:   rgba(0,212,255,0.15);
-    --card:     rgba(13,20,37,0.85);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+:root{
+  --bg:#070C18;--bg2:#0D1425;--bg3:#111B30;
+  --cyan:#00D4FF;--violet:#7C6EFA;--green:#00E5A0;--amber:#FFB830;
+  --text:#E8EDF5;--muted:#7A8BA6;--border:rgba(0,212,255,0.14);--card:rgba(13,20,37,0.92);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1rem 2.5rem;
-    background: rgba(7,12,24,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700; font-size: 1.2rem;
-    color: var(--cyan);
-    letter-spacing: -0.02em;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem; color: var(--muted);
-    text-decoration: none; letter-spacing: 0.05em;
-    transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--cyan); }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:.85rem 2.5rem;background:rgba(7,12,24,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--cyan)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-actions{display:flex;gap:.6rem;align-items:center}
+.nav-dl{font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:.4rem .9rem;border:1px solid var(--cyan);color:var(--cyan);border-radius:5px;text-decoration:none;transition:background .2s,color .2s;display:flex;align-items:center;gap:.4rem}
+.nav-dl:hover{background:var(--cyan);color:#070C18}
+.nav-ai-btn{font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:.4rem .9rem;border:1px solid var(--violet);color:#A89FFB;border-radius:5px;background:rgba(124,110,250,.08);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.4rem}
+.nav-ai-btn:hover{background:rgba(124,110,250,.2)}
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    position: relative; overflow: hidden;
-    padding: 7rem 2.5rem 4rem;
-  }
-  #constellation {
-    position: absolute; inset: 0;
-    pointer-events: none;
-  }
-  .hero-content {
-    position: relative; z-index: 1;
-    max-width: 700px;
-  }
-  .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem; color: var(--cyan);
-    letter-spacing: 0.18em; text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: inline-block; width: 2rem; height: 1px;
-    background: var(--cyan);
-  }
-  .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 700; line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-  }
-  .hero-title span { color: var(--cyan); }
-  .hero-sub {
-    font-size: 1.05rem; color: var(--muted);
-    max-width: 560px; margin-bottom: 2.5rem;
-    line-height: 1.75;
-  }
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-  .stat-item { display: flex; flex-direction: column; }
-  .stat-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem; font-weight: 700;
-    color: var(--cyan); line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem; color: var(--muted);
-    letter-spacing: 0.05em; margin-top: 0.2rem;
-  }
-  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600; font-size: 0.9rem;
-    padding: 0.75rem 1.75rem;
-    background: var(--cyan); color: #070C18;
-    border: none; border-radius: 6px;
-    text-decoration: none; cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,0.35); }
-  .btn-outline {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 500; font-size: 0.9rem;
-    padding: 0.75rem 1.75rem;
-    background: transparent; color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 6px; text-decoration: none;
-    transition: border-color .2s, color .2s;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-  }
-  .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2.5rem 4rem}
+#constellation{position:absolute;inset:0;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem}
+.hero-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--cyan)}
+.hero-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:700;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.4rem}
+.hero-title .name{color:var(--cyan)}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:580px;margin-bottom:2rem;line-height:1.8}
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--cyan);line-height:1}
+.stat-label{font-size:.7rem;color:var(--muted);letter-spacing:.05em;margin-top:.25rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;padding:.7rem 1.6rem;background:var(--cyan);color:#070C18;border:none;border-radius:6px;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,212,255,.35)}
+.btn-outline{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.88rem;padding:.7rem 1.6rem;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-ai{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.88rem;padding:.7rem 1.6rem;background:rgba(124,110,250,.12);color:#A89FFB;border:1px solid rgba(124,110,250,.3);border-radius:6px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;cursor:pointer}
+.btn-ai:hover{background:rgba(124,110,250,.25);border-color:var(--violet)}
 
-  /* ── SECTION LAYOUT ── */
-  section { padding: 5rem 2.5rem; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--cyan);
-    letter-spacing: 0.2em; text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 700; letter-spacing: -0.02em;
-    margin-bottom: 3rem;
-  }
-  .section-title span { color: var(--cyan); }
+/* SECTIONS */
+section{padding:5rem 2.5rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--cyan);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.6rem}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;letter-spacing:-.02em;margin-bottom:3rem}
+.section-title span{color:var(--cyan)}
 
-  /* ── ABOUT ── */
-  #about { background: var(--bg2); }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center;
-  }
-  .about-text p {
-    color: var(--muted); line-height: 1.8;
-    margin-bottom: 1.2rem; font-size: 0.97rem;
-  }
-  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
-  .highlight-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.25rem 1.5rem;
-    display: flex; align-items: flex-start; gap: 1rem;
-    transition: border-color .2s;
-  }
-  .highlight-card:hover { border-color: rgba(0,212,255,0.4); }
-  .highlight-icon {
-    font-size: 1.4rem; margin-top: 0.1rem; flex-shrink: 0;
-  }
-  .highlight-card h4 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.92rem; font-weight: 600; margin-bottom: 0.25rem;
-  }
-  .highlight-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+/* ABOUT */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--muted);line-height:1.85;margin-bottom:1.1rem;font-size:.95rem}
+.about-highlights{display:flex;flex-direction:column;gap:.85rem}
+.hl-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.3rem;display:flex;align-items:flex-start;gap:.85rem;transition:border-color .2s}
+.hl-card:hover{border-color:rgba(0,212,255,.4)}
+.hl-icon{font-size:1.25rem;margin-top:.1rem;flex-shrink:0}
+.hl-card h4{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;margin-bottom:.2rem}
+.hl-card p{font-size:.78rem;color:var(--muted);margin:0}
+.awards-strip{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.75rem}
+.award-badge{display:flex;align-items:center;gap:.45rem;background:rgba(255,184,48,.07);border:1px solid rgba(255,184,48,.2);border-radius:6px;padding:.4rem .8rem;font-size:.75rem;color:#FFD880}
 
-  /* ── SKILLS ── */
-  #skills { background: var(--bg); }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .skill-group {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.5rem;
-    transition: border-color .2s, transform .2s;
-  }
-  .skill-group:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-3px); }
-  .skill-group-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem; color: var(--cyan);
-    letter-spacing: 0.15em; text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .skill-group-label::after {
-    content: ''; flex: 1; height: 1px;
-    background: var(--border);
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .tag {
-    font-size: 0.78rem; font-weight: 500;
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px; letter-spacing: 0.02em;
-    background: rgba(0,212,255,0.07);
-    border: 1px solid rgba(0,212,255,0.15);
-    color: var(--text);
-    transition: background .15s;
-  }
-  .tag:hover { background: rgba(0,212,255,0.15); }
-  .tag.accent { background: rgba(0,212,255,0.15); border-color: rgba(0,212,255,0.4); color: var(--cyan); }
-  .tag.violet { background: rgba(124,110,250,0.1); border-color: rgba(124,110,250,0.3); color: #A89FFB; }
-  .tag.green  { background: rgba(0,229,160,0.08); border-color: rgba(0,229,160,0.25); color: #00E5A0; }
+/* SKILLS */
+#skills{background:var(--bg)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1.3rem}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.35rem;transition:border-color .2s,transform .2s}
+.skill-group:hover{border-color:rgba(0,212,255,.4);transform:translateY(-3px)}
+.sg-label{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.sg-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.42rem}
+.tag{font-size:.74rem;font-weight:500;padding:.26rem .65rem;border-radius:4px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.12);color:var(--text);transition:background .15s}
+.tag:hover{background:rgba(0,212,255,.13)}
+.tag.c{background:rgba(0,212,255,.13);border-color:rgba(0,212,255,.4);color:var(--cyan)}
+.tag.v{background:rgba(124,110,250,.1);border-color:rgba(124,110,250,.3);color:#A89FFB}
+.tag.g{background:rgba(0,229,160,.07);border-color:rgba(0,229,160,.22);color:#00E5A0}
+.tag.ai-tag{background:rgba(0,229,160,.12);border-color:rgba(0,229,160,.45);color:#00E5A0;font-weight:600}
 
-  /* ── EXPERIENCE ── */
-  #experience { background: var(--bg2); }
-  .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
-    background: linear-gradient(to bottom, var(--cyan), transparent);
-  }
-  .tl-item {
-    position: relative; margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .tl-item:last-child { border-bottom: none; margin-bottom: 0; }
-  .tl-dot {
-    position: absolute; left: -2.4rem; top: 0.35rem;
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--cyan);
-    box-shadow: 0 0 0 3px rgba(0,212,255,0.2);
-  }
-  .tl-meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--muted);
-    letter-spacing: 0.05em; margin-bottom: 0.5rem;
-  }
-  .tl-role {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2rem; font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-  .tl-company {
-    font-size: 0.9rem; color: var(--cyan);
-    font-weight: 500; margin-bottom: 0.75rem;
-  }
-  .tl-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
-  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-  .tl-tag {
-    font-size: 0.73rem; padding: 0.2rem 0.6rem;
-    border-radius: 3px;
-    background: rgba(0,212,255,0.06);
-    border: 1px solid rgba(0,212,255,0.12);
-    color: var(--muted);
-  }
+/* EXPERIENCE */
+#experience{background:var(--bg2)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--cyan),rgba(0,212,255,.08))}
+.tl-item{position:relative;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.tl-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.tl-dot{position:absolute;left:-2.42rem;top:.35rem;width:11px;height:11px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,212,255,.2)}
+.tl-dot.current{background:var(--green);box-shadow:0 0 0 3px rgba(0,229,160,.2),0 0 14px rgba(0,229,160,.4)}
+.tl-meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);letter-spacing:.05em;margin-bottom:.4rem;display:flex;align-items:center;gap:.7rem}
+.tl-badge{font-size:.63rem;padding:.13rem .48rem;border-radius:3px;background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.25);color:var(--green)}
+.tl-role{font-family:'Space Grotesk',sans-serif;font-size:1.12rem;font-weight:600;margin-bottom:.2rem}
+.tl-company{font-size:.86rem;color:var(--cyan);font-weight:500;margin-bottom:.8rem}
+.tl-desc{font-size:.86rem;color:var(--muted);line-height:1.8}
+.tl-desc ul{padding-left:1.1rem;margin:.5rem 0}
+.tl-desc li{margin-bottom:.32rem}
+.tl-desc strong{color:var(--text);font-weight:500}
+.tl-projects{margin-top:.9rem}
+.tl-proj-label{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--violet);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.55rem}
+.proj-cards{display:flex;flex-direction:column;gap:.45rem}
+.proj-card{background:rgba(124,110,250,.06);border:1px solid rgba(124,110,250,.16);border-radius:7px;padding:.65rem .9rem}
+.proj-card strong{font-family:'Space Grotesk',sans-serif;font-size:.83rem;color:#C4BFFF;font-weight:600}
+.proj-card p{font-size:.76rem;color:var(--muted);margin-top:.18rem;line-height:1.6}
+.tl-tags{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:.9rem}
+.tl-tag{font-size:.68rem;padding:.16rem .52rem;border-radius:3px;background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.1);color:var(--muted)}
 
-  /* ── CONTACT ── */
-  #contact { background: var(--bg); text-align: center; }
-  .contact-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 4rem 3rem;
-    max-width: 640px; margin: 0 auto;
-  }
-  .contact-card h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem; font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-  .contact-card p { color: var(--muted); margin-bottom: 2rem; }
-  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-  .contact-link {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    padding: 0.6rem 1.25rem;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    color: var(--muted); text-decoration: none;
-    transition: all .2s;
-  }
-  .contact-link:hover { border-color: var(--cyan); color: var(--cyan); }
+/* EDUCATION */
+#education{background:var(--bg)}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;max-width:580px;display:flex;gap:1.25rem;align-items:flex-start}
+.edu-icon{font-size:2rem;flex-shrink:0}
+.edu-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:.22rem}
+.edu-card .inst{font-size:.83rem;color:var(--cyan);margin-bottom:.18rem}
+.edu-card .yr{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted)}
 
-  /* ── FOOTER ── */
-  footer {
-    padding: 2rem 2.5rem;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--muted);
-  }
+/* ===== AI SECTION ===== */
+#ai-tools{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ai-intro{max-width:640px;margin-bottom:3rem}
+.ai-intro p{color:var(--muted);font-size:.95rem;line-height:1.8}
+.ai-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.ai-tab{font-family:'JetBrains Mono',monospace;font-size:.74rem;padding:.5rem 1.1rem;border-radius:6px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.ai-tab:hover{border-color:var(--violet);color:#A89FFB}
+.ai-tab.active{background:rgba(124,110,250,.15);border-color:var(--violet);color:#C4BFFF}
+.ai-panel{display:none}
+.ai-panel.active{display:block}
+.ai-card{background:var(--card);border:1px solid rgba(124,110,250,.2);border-radius:14px;padding:2rem;position:relative;overflow:hidden}
+.ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--cyan))}
+.ai-card-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.6rem}
+.ai-card-title .ai-spark{font-size:1.1rem}
+.ai-card-desc{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+.ai-textarea{width:100%;background:rgba(7,12,24,.8);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:.85rem;padding:.9rem 1rem;resize:vertical;min-height:110px;outline:none;transition:border-color .2s;line-height:1.7}
+.ai-textarea:focus{border-color:rgba(124,110,250,.5)}
+.ai-textarea::placeholder{color:var(--muted)}
+.ai-input{width:100%;background:rgba(7,12,24,.8);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:.85rem;padding:.75rem 1rem;outline:none;transition:border-color .2s}
+.ai-input:focus{border-color:rgba(124,110,250,.5)}
+.ai-input::placeholder{color:var(--muted)}
+.ai-run-btn{margin-top:1rem;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.86rem;padding:.7rem 1.6rem;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;border:none;border-radius:7px;cursor:pointer;transition:opacity .2s,transform .2s;display:inline-flex;align-items:center;gap:.5rem}
+.ai-run-btn:hover{opacity:.88;transform:translateY(-1px)}
+.ai-run-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.ai-output{margin-top:1.5rem;display:none}
+.ai-output.visible{display:block}
+.ai-output-box{background:rgba(7,12,24,.9);border:1px solid rgba(0,212,255,.15);border-radius:8px;padding:1.25rem;font-size:.84rem;color:var(--text);line-height:1.8;white-space:pre-wrap;max-height:420px;overflow-y:auto}
+.ai-output-label{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.ai-output-label .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.ai-loading{display:none;align-items:center;gap:.75rem;margin-top:1.25rem;font-size:.82rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.ai-loading.visible{display:flex}
+.ai-spinner{width:16px;height:16px;border:2px solid rgba(124,110,250,.2);border-top-color:var(--violet);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.match-results{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.match-col h4{font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:600;margin-bottom:.7rem}
+.match-col.green h4{color:var(--green)}
+.match-col.amber h4{color:var(--amber)}
+.match-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.match-tag{font-size:.72rem;padding:.24rem .6rem;border-radius:4px}
+.match-tag.hit{background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);color:var(--green)}
+.match-tag.miss{background:rgba(255,184,48,.07);border:1px solid rgba(255,184,48,.22);color:var(--amber)}
+.score-bar{margin-bottom:1.5rem}
+.score-bar-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:.4rem;display:flex;justify-content:space-between}
+.score-track{height:7px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
+.score-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--violet),var(--green));transition:width 1s ease}
 
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible { opacity: 1; transform: none; }
+/* CHAT */
+.chat-messages{background:rgba(7,12,24,.9);border:1px solid rgba(0,212,255,.12);border-radius:10px;padding:1rem;height:280px;overflow-y:auto;margin-bottom:1rem;display:flex;flex-direction:column;gap:.75rem}
+.chat-msg{display:flex;gap:.65rem;align-items:flex-start}
+.chat-msg.user{flex-direction:row-reverse}
+.chat-avatar{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600}
+.chat-avatar.ai{background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff}
+.chat-avatar.user{background:rgba(0,212,255,.15);border:1px solid rgba(0,212,255,.3);color:var(--cyan)}
+.chat-bubble{max-width:80%;padding:.6rem .9rem;border-radius:8px;font-size:.82rem;line-height:1.7}
+.chat-bubble.ai{background:rgba(124,110,250,.1);border:1px solid rgba(124,110,250,.2);color:var(--text)}
+.chat-bubble.user{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.18);color:var(--text)}
+.chat-input-row{display:flex;gap:.6rem}
+.chat-input-row .ai-input{flex:1}
+.chat-send{font-family:'JetBrains Mono',monospace;font-size:.74rem;padding:.7rem 1.1rem;background:rgba(124,110,250,.15);border:1px solid var(--violet);color:#A89FFB;border-radius:7px;cursor:pointer;transition:all .2s;flex-shrink:0}
+.chat-send:hover{background:rgba(124,110,250,.3)}
+.chat-send:disabled{opacity:.4;cursor:not-allowed}
+.chat-thinking{display:flex;align-items:center;gap:.4rem;padding:.5rem .8rem;font-size:.76rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.dots span{animation:blink 1.4s infinite both}
+.dots span:nth-child(2){animation-delay:.2s}
+.dots span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:0}40%{opacity:1}}
+.copy-btn{margin-top:.7rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;padding:.35rem .8rem;border:1px solid var(--border);color:var(--muted);background:transparent;border-radius:5px;cursor:pointer;transition:all .2s}
+.copy-btn:hover{border-color:var(--cyan);color:var(--cyan)}
 
-  /* ── RESPONSIVE ── */
-  @media(max-width:768px){
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { gap: 1.2rem; }
-    section { padding: 3.5rem 1.25rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-stats { gap: 1.5rem; }
-  }
-  @media(max-width:480px){
-    .nav-links { display: none; }
-  }
-  @media(prefers-reduced-motion: reduce){
-    .reveal { opacity: 1; transform: none; transition: none; }
-    canvas { display: none; }
-  }
+/* CONTACT */
+#contact{background:var(--bg2);text-align:center}
+.contact-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:3.5rem 2.5rem;max-width:640px;margin:0 auto}
+.contact-card h2{font-family:'Space Grotesk',sans-serif;font-size:1.85rem;font-weight:700;margin-bottom:.65rem}
+.contact-card p{color:var(--muted);margin-bottom:1.8rem;font-size:.92rem}
+.contact-links{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.55rem 1.1rem;border-radius:6px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .2s}
+.contact-link:hover{border-color:var(--cyan);color:var(--cyan)}
+.contact-link.primary{background:var(--cyan);border-color:var(--cyan);color:#070C18;font-weight:600}
+.contact-link.primary:hover{box-shadow:0 6px 20px rgba(0,212,255,.3);transform:translateY(-2px)}
+
+footer{padding:1.75rem 2.5rem;border-top:1px solid var(--border);text-align:center;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  nav{padding:.8rem 1.2rem}
+  .nav-links{display:none}
+  section{padding:3.5rem 1.2rem}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-stats{gap:1.4rem}
+  .match-results{grid-template-columns:1fr}
+  .contact-card{padding:2.5rem 1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  canvas{display:none}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">V.dev</div>
+  <div class="nav-logo">Vijay S</div>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#skills">skills</a></li>
     <li><a href="#experience">experience</a></li>
+    <li><a href="#ai-tools">AI tools</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
+  <div class="nav-actions">
+    <button class="nav-ai-btn" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">✦ AI Tools</button>
+    <a href="Vijay_Resume.pdf" download class="nav-dl">↓ Resume</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <canvas id="constellation"></canvas>
   <div class="hero-content">
-    <div class="hero-eyebrow">Available for senior / lead roles</div>
+    <div class="hero-eyebrow">Senior Lead Engineer · Chennai, India</div>
     <h1 class="hero-title">
-      Vijay<br/>
-      <span>Full-Stack</span><br/>
-      .NET &amp; Cloud Engineer
+      <span class="name">Vijay S</span><br/>
+      <span>.NET Full-Stack</span><br/>
+      <span>& Cloud Engineer</span>
     </h1>
-    <p class="hero-sub">
-      13.5 years building scalable, secure cloud-native applications on .NET Core, Azure, and Angular — from system architecture to CI/CD pipelines and microservices.
-    </p>
+    <p class="hero-sub">13.5 years building scalable, secure, cloud-native platforms — from microservices on Azure AKS to Angular frontends and AI-powered document workflows. Currently at Relevantz, previously Agilysys & HCL.</p>
     <div class="hero-stats">
       <div class="stat-item"><span class="stat-num">13.5</span><span class="stat-label">Years experience</span></div>
-      <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Core technologies</span></div>
-      <div class="stat-item"><span class="stat-num">Azure</span><span class="stat-label">Cloud platform</span></div>
+      <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Companies</span></div>
+      <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Patents — HCL</span></div>
+      <div class="stat-item"><span class="stat-num">Azure AI</span><span class="stat-label">Current focus</span></div>
     </div>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Get in touch
       </a>
-      <a href="#skills" class="btn-outline">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        View skills
-      </a>
+      <button class="btn-ai" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">✦ Try AI Tools</button>
+      <a href="Vijay_Resume.pdf" download class="btn-outline">↓ Download Resume</a>
     </div>
   </div>
 </section>
@@ -372,48 +271,27 @@
 <section id="about">
   <div class="section-inner">
     <p class="section-label">About</p>
-    <h2 class="section-title">Building systems that <span>scale</span></h2>
+    <h2 class="section-title">Building systems that <span>scale & last</span></h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>
-          Full-stack developer with 13.5 years of experience specialising in .NET Core, C#, ASP.NET, SQL Server, Angular, Azure, and DevOps. I design and develop scalable, secure, cloud-native applications from the ground up.
-        </p>
-        <p>
-          My expertise spans system architecture, design patterns, REST API standards, Web API, microservices, CI/CD, Docker, AKS, Redis, EF Core, App Insights, Blob Storage, Key Vault, Azure Service Bus, and RabbitMQ.
-        </p>
-        <p>
-          I'm experienced in Agile (Scrum/Kanban), requirement analysis, and leading cross-functional teams to deliver high-quality, user-focused software on time.
-        </p>
+        <p>Full-stack developer with 13.5 years of experience in <strong style="color:var(--text)">.NET Core, C#, ASP.NET, Angular, SQL Server, Azure, and DevOps</strong>. I specialise in designing and developing scalable, secure, cloud-native applications from architecture to production.</p>
+        <p>My core strength is <strong style="color:var(--text)">system architecture and microservices</strong> — building event-driven platforms using Azure Service Bus, RabbitMQ, Docker, and AKS. At Relevantz, I led the intelligent OCR-based document platform for NewRez (USA) and am now driving <strong style="color:var(--green)">Azure Content Understanding (AI)</strong> from POC to production — an AI service for automated document intelligence in mortgage workflows.</p>
+        <p>Beyond code: Agile delivery, onsite US deployments, 8 patent submissions at HCL, and multiple company awards across Agilysys and HCL.</p>
+        <div class="awards-strip">
+          <div class="award-badge">🏆 Standout Performer 2024 – Agilysys</div>
+          <div class="award-badge">⚔️ Warrior 2021 & 2022 – Agilysys</div>
+          <div class="award-badge">⚡ Live Wire 2016 & 2017 – HCL</div>
+          <div class="award-badge">💡 8 Patents – HCL</div>
+          <div class="award-badge">🥈 2nd Prize – HCL Automation Contest</div>
+          <div class="award-badge">🌟 Best New Kid 2012 – Infoplus</div>
+        </div>
       </div>
       <div class="about-highlights reveal">
-        <div class="highlight-card">
-          <div class="highlight-icon">🏗️</div>
-          <div>
-            <h4>System Architecture</h4>
-            <p>Designing scalable microservices, event-driven systems, and cloud-native architectures using Azure AKS and service bus patterns.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">☁️</div>
-          <div>
-            <h4>Azure Cloud Engineering</h4>
-            <p>App Services, AKS, Service Bus, Blob Storage, Key Vault, App Insights — end-to-end Azure expertise including GitHub Copilot integration.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">🔁</div>
-          <div>
-            <h4>DevOps &amp; CI/CD</h4>
-            <p>Automating delivery pipelines with Azure DevOps, Jenkins, Docker, Kubernetes, and PowerShell scripting for zero-downtime deployments.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">👥</div>
-          <div>
-            <h4>Team Leadership</h4>
-            <p>Led Agile (Scrum/Kanban) teams through full product lifecycles — from requirement analysis to production release.</p>
-          </div>
-        </div>
+        <div class="hl-card"><div class="hl-icon">🤖</div><div><h4>AI — Azure Content Understanding</h4><p>Driving POC-to-production of Azure's Content Understanding service for intelligent mortgage document classification.</p></div></div>
+        <div class="hl-card"><div class="hl-icon">🏗️</div><div><h4>Cloud-Native Architecture</h4><p>Microservices on AKS with Azure Service Bus, Key Vault, App Insights, Docker — built for scale and observability.</p></div></div>
+        <div class="hl-card"><div class="hl-icon">🔗</div><div><h4>Payment & Enterprise Integrations</h4><p>Shift4, FreedomPay, gift card, and loyalty system integrations for Agilysys hospitality PMS products.</p></div></div>
+        <div class="hl-card"><div class="hl-icon">✈️</div><div><h4>Onsite USA Deployments</h4><p>Deployed enterprise software at 3 US customer locations (~6 months), bridging dev and delivery directly.</p></div></div>
+        <div class="hl-card"><div class="hl-icon">👥</div><div><h4>Team Leadership & Agile</h4><p>Led sprint planning, requirement analysis, and cross-functional Scrum/Kanban teams across multiple product lines.</p></div></div>
       </div>
     </div>
   </div>
@@ -425,91 +303,14 @@
     <p class="section-label">Technical Skills</p>
     <h2 class="section-title">What I <span>work with</span></h2>
     <div class="skills-grid reveal">
-
-      <div class="skill-group">
-        <div class="skill-group-label">Backend</div>
-        <div class="skill-tags">
-          <span class="tag accent">.NET Core</span>
-          <span class="tag accent">C#</span>
-          <span class="tag">ASP.NET</span>
-          <span class="tag">MVC</span>
-          <span class="tag">Web API</span>
-          <span class="tag">Microservices</span>
-          <span class="tag">LINQ</span>
-          <span class="tag">EF Core</span>
-          <span class="tag">Redis</span>
-          <span class="tag">WCF</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Frontend</div>
-        <div class="skill-tags">
-          <span class="tag accent">Angular</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">React</span>
-          <span class="tag">Redux</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">jQuery</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Bootstrap</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Cloud &amp; Azure</div>
-        <div class="skill-tags">
-          <span class="tag violet">App Services</span>
-          <span class="tag violet">AKS</span>
-          <span class="tag violet">Service Bus</span>
-          <span class="tag violet">RabbitMQ</span>
-          <span class="tag violet">App Insights</span>
-          <span class="tag violet">Blob Storage</span>
-          <span class="tag violet">Key Vault</span>
-          <span class="tag violet">GitHub Copilot</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">DevOps &amp; CI/CD</div>
-        <div class="skill-tags">
-          <span class="tag green">Azure DevOps</span>
-          <span class="tag green">Docker</span>
-          <span class="tag green">Kubernetes</span>
-          <span class="tag green">Jenkins</span>
-          <span class="tag green">Git</span>
-          <span class="tag">PowerShell</span>
-          <span class="tag">Shell Script</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Databases</div>
-        <div class="skill-tags">
-          <span class="tag accent">SQL Server</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">Oracle</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Practices &amp; Tools</div>
-        <div class="skill-tags">
-          <span class="tag">Design Patterns</span>
-          <span class="tag">System Architecture</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Agile/Scrum</span>
-          <span class="tag">Kanban</span>
-          <span class="tag">Hangfire</span>
-          <span class="tag">SSRS</span>
-          <span class="tag">RDLC</span>
-          <span class="tag">Telerik</span>
-          <span class="tag">Python</span>
-          <span class="tag">Coded UI</span>
-        </div>
-      </div>
-
+      <div class="skill-group"><div class="sg-label">Backend</div><div class="skill-tags"><span class="tag c">.NET Core</span><span class="tag c">C#</span><span class="tag">ASP.NET</span><span class="tag">MVC</span><span class="tag">Web API</span><span class="tag">Microservices</span><span class="tag">LINQ</span><span class="tag">EF / EF Core</span><span class="tag">Redis</span><span class="tag">WCF</span></div></div>
+      <div class="skill-group"><div class="sg-label">Frontend</div><div class="skill-tags"><span class="tag c">Angular</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Redux</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span></div></div>
+      <div class="skill-group"><div class="sg-label">Cloud & Azure</div><div class="skill-tags"><span class="tag v">App Services</span><span class="tag v">AKS</span><span class="tag v">Service Bus</span><span class="tag v">RabbitMQ</span><span class="tag v">App Insights</span><span class="tag v">Blob Storage</span><span class="tag v">Key Vault</span><span class="tag v">MS Graph</span><span class="tag v">GitHub Copilot</span><span class="tag ai-tag">✦ Content Understanding AI</span></div></div>
+      <div class="skill-group"><div class="sg-label">DevOps & CI/CD</div><div class="skill-tags"><span class="tag g">Azure DevOps</span><span class="tag g">Docker</span><span class="tag g">Kubernetes</span><span class="tag g">Jenkins</span><span class="tag g">Git</span><span class="tag">PowerShell</span><span class="tag">Shell Script</span></div></div>
+      <div class="skill-group"><div class="sg-label">Databases</div><div class="skill-tags"><span class="tag c">SQL Server</span><span class="tag">MySQL</span><span class="tag">Oracle</span><span class="tag">PostgreSQL</span></div></div>
+      <div class="skill-group"><div class="sg-label">Languages & Scripting</div><div class="skill-tags"><span class="tag c">C#</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">PowerShell</span><span class="tag">Shell</span></div></div>
+      <div class="skill-group"><div class="sg-label">Reporting & Tools</div><div class="skill-tags"><span class="tag">RDLC</span><span class="tag">SSRS</span><span class="tag">Telerik</span><span class="tag">Hangfire</span><span class="tag">Visual Studio</span><span class="tag">VS Code</span><span class="tag">Coded UI</span></div></div>
+      <div class="skill-group"><div class="sg-label">Practices & Soft Skills</div><div class="skill-tags"><span class="tag">Design Patterns</span><span class="tag">System Architecture</span><span class="tag">REST API Standards</span><span class="tag">Agile / Scrum</span><span class="tag">Kanban</span><span class="tag">Team Leadership</span></div></div>
     </div>
   </div>
 </section>
@@ -517,58 +318,178 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
-    <p class="section-label">Experience</p>
+    <p class="section-label">Work Experience</p>
     <h2 class="section-title">13.5 years of <span>engineering</span></h2>
     <div class="timeline">
-
       <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-meta">Current · Relevantz</div>
-        <div class="tl-role">Senior Full-Stack Developer / Tech Lead</div>
+        <div class="tl-dot current"></div>
+        <div class="tl-meta"><span>2025 – 2026</span><span class="tl-badge">Current</span></div>
+        <div class="tl-role">Senior Lead Engineer</div>
         <div class="tl-company">Relevantz Technology Services</div>
-        <p class="tl-desc">
-          Designing and developing cloud-native enterprise applications on .NET Core and Azure. Leading architecture decisions, code reviews, and CI/CD pipeline design. Driving microservices adoption using Docker, AKS, and Azure Service Bus. Mentoring junior developers and managing Agile delivery cycles.
-        </p>
-        <div class="tl-tags">
-          <span class="tl-tag">.NET Core</span><span class="tl-tag">Azure AKS</span>
-          <span class="tl-tag">Angular</span><span class="tl-tag">Microservices</span>
-          <span class="tl-tag">Azure DevOps</span><span class="tl-tag">Docker</span>
-          <span class="tl-tag">EF Core</span><span class="tl-tag">Redis</span>
-        </div>
+        <div class="tl-desc"><ul>
+          <li>Developed and led an intelligent <strong>OCR-based document processing</strong> platform for NewRez, USA — handling mortgage document ingestion, classification, and routing at scale.</li>
+          <li>Built scalable microservices using <strong>.NET Core, Angular, Azure Service Bus, Docker, AKS, MS Graph</strong>, secured via Key Vault, monitored via App Insights.</li>
+          <li>Driving <strong>Azure Content Understanding (AI)</strong> from POC to production — automated document intelligence for mortgage workflows.</li>
+          <li>Established CI/CD pipelines via <strong>Azure DevOps</strong> for zero-downtime AKS deployments.</li>
+        </ul></div>
+        <div class="tl-projects"><div class="tl-proj-label">Key Projects</div><div class="proj-cards">
+          <div class="proj-card"><strong>eOCR</strong><p>OCR-based document ingestion and classification for mortgage workflows — modular, plug-and-play components.</p></div>
+          <div class="proj-card"><strong>✦ Azure Content Understanding (AI)</strong><p>AI layer for intelligent document understanding. POC proven; now converting to main production integration.</p></div>
+        </div></div>
+        <div class="tl-tags"><span class="tl-tag">.NET Core</span><span class="tl-tag">Angular</span><span class="tl-tag">AKS</span><span class="tl-tag">Service Bus</span><span class="tl-tag">Docker</span><span class="tl-tag">MS Graph</span><span class="tl-tag">Key Vault</span><span class="tl-tag">Azure DevOps</span><span class="tl-tag">Content Understanding AI</span></div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-dot"></div>
-        <div class="tl-meta">Previous Experience · 13+ years total</div>
-        <div class="tl-role">Full-Stack .NET Developer</div>
-        <div class="tl-company">Enterprise Software Delivery</div>
-        <p class="tl-desc">
-          Built end-to-end web applications using ASP.NET MVC, Web API, Angular, and SQL Server. Implemented RESTful APIs, authentication/authorisation, EF/EF Core data access layers, and reporting modules using SSRS and RDLC. Transitioned on-premise applications to Azure cloud with Blob Storage, Key Vault, and App Insights integration.
-        </p>
-        <div class="tl-tags">
-          <span class="tl-tag">ASP.NET MVC</span><span class="tl-tag">Web API</span>
-          <span class="tl-tag">SQL Server</span><span class="tl-tag">Angular</span>
-          <span class="tl-tag">Azure</span><span class="tl-tag">SSRS</span>
-          <span class="tl-tag">WCF</span><span class="tl-tag">jQuery</span>
-        </div>
+        <div class="tl-meta">2019 – 2025</div>
+        <div class="tl-role">Senior Lead Software Analyst</div>
+        <div class="tl-company">Agilysys Technologies</div>
+        <div class="tl-desc"><ul>
+          <li>Led PMS enterprise application development with <strong>C#, .NET Core, Angular, SQL Server, PostgreSQL</strong>.</li>
+          <li>Designed payment integrations: <strong>Shift4, FreedomPay, gift cards, loyalty systems</strong>.</li>
+          <li>Managed Agile delivery with sprint planning and requirement analysis.</li>
+          <li>Onsite at <strong>3 USA customer locations</strong> (~6 months total).</li>
+        </ul></div>
+        <div class="tl-projects"><div class="tl-proj-label">Key Projects</div><div class="proj-cards">
+          <div class="proj-card"><strong>Agilysys Activities / Rental</strong><p>Class and rental management software for hospitality venues — scheduling, booking, and billing.</p></div>
+          <div class="proj-card"><strong>Agilysys SEAT</strong><p>Online seat reservation & venue management system for large-scale hospitality environments.</p></div>
+        </div></div>
+        <div class="tl-tags"><span class="tl-tag">.NET Core</span><span class="tl-tag">Angular</span><span class="tl-tag">SQL Server</span><span class="tl-tag">PostgreSQL</span><span class="tl-tag">Shift4</span><span class="tl-tag">FreedomPay</span><span class="tl-tag">Agile/Scrum</span></div>
       </div>
-
       <div class="tl-item reveal">
         <div class="tl-dot"></div>
-        <div class="tl-meta">Earlier career</div>
-        <div class="tl-role">.NET Developer</div>
-        <div class="tl-company">Software Development</div>
-        <p class="tl-desc">
-          Developed business applications in C#, ASP.NET, and SQL Server. Gained deep experience in design patterns, LINQ, stored procedures, and reporting. Contributed to test automation using Coded UI. Collaborated in Agile teams with Jenkins-based CI pipelines.
-        </p>
-        <div class="tl-tags">
-          <span class="tl-tag">C#</span><span class="tl-tag">ASP.NET</span>
-          <span class="tl-tag">SQL Server</span><span class="tl-tag">LINQ</span>
-          <span class="tl-tag">Jenkins</span><span class="tl-tag">Coded UI</span>
-          <span class="tl-tag">Design Patterns</span>
+        <div class="tl-meta">2015 – 2019</div>
+        <div class="tl-role">Technical Lead</div>
+        <div class="tl-company">HCL Technologies</div>
+        <div class="tl-desc"><ul>
+          <li>Developed high-performance applications for <strong>Xerox, USA</strong>.</li>
+          <li>Led development using <strong>MVC, Angular, SQL Server, WCF, WPF, and Jenkins</strong>.</li>
+          <li>Implemented CI/CD pipelines and test automation frameworks.</li>
+          <li><strong>8 patent submissions</strong> (Group 2 level) · <strong>2nd Prize — HCL Automation Contest</strong>.</li>
+        </ul></div>
+        <div class="tl-projects"><div class="tl-proj-label">Key Projects</div><div class="proj-cards">
+          <div class="proj-card"><strong>ClearSky</strong><p>Agile Kanban-based task management system for team tracking.</p></div>
+          <div class="proj-card"><strong>Strings</strong><p>Multi-language translation management for Xerox printer driver localisation.</p></div>
+          <div class="proj-card"><strong>Xerox Driver Performance</strong><p>Automated benchmarking platform for printer driver analysis.</p></div>
+          <div class="proj-card"><strong>Virtual Lab</strong><p>Hyper-V virtual machine management tool for dev/test lab provisioning.</p></div>
+        </div></div>
+        <div class="tl-tags"><span class="tl-tag">MVC</span><span class="tl-tag">Angular</span><span class="tl-tag">WCF</span><span class="tl-tag">WPF</span><span class="tl-tag">SQL Server</span><span class="tl-tag">Jenkins</span><span class="tl-tag">CI/CD</span></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">2012 – 2015</div>
+        <div class="tl-role">Software Engineer</div>
+        <div class="tl-company">Infoplus Technologies</div>
+        <div class="tl-desc"><ul>
+          <li>Developed educational management and e-learning systems using <strong>MVC, ASP.NET, SQL Server, MySQL</strong>.</li>
+          <li>Implemented secure web services, authentication, and exam automation.</li>
+          <li>Awarded <strong>Best New Kid (2012)</strong>.</li>
+        </ul></div>
+        <div class="tl-projects"><div class="tl-proj-label">Key Projects</div><div class="proj-cards">
+          <div class="proj-card"><strong>E-Learning System</strong><p>Digital library platform for engineering students.</p></div>
+          <div class="proj-card"><strong>Exam Management System</strong><p>Automated university exam processing — scheduling to results.</p></div>
+          <div class="proj-card"><strong>SEval (Smart Evaluation Process)</strong><p>Secure evaluation and results processing system.</p></div>
+        </div></div>
+        <div class="tl-tags"><span class="tl-tag">ASP.NET</span><span class="tl-tag">MVC</span><span class="tl-tag">SQL Server</span><span class="tl-tag">MySQL</span><span class="tl-tag">Web Services</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic <span>background</span></h2>
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <h3>B.Tech – Information Technology</h3>
+        <div class="inst">Loyola Institute of Technology, Anna University — Chennai</div>
+        <div class="yr">2007 – 2011</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI TOOLS ===== -->
+<section id="ai-tools">
+  <div class="section-inner">
+    <p class="section-label">✦ AI-Powered</p>
+    <h2 class="section-title">Explore my profile <span>with AI</span></h2>
+    <div class="ai-intro">
+      <p>Three AI tools powered by Claude — ask anything about my experience, generate a cover letter tailored to a job description, or instantly check how well my skills match a role.</p>
+    </div>
+    <div class="ai-tabs">
+      <button class="ai-tab active" onclick="switchTab('chat')">💬 Ask me anything</button>
+      <button class="ai-tab" onclick="switchTab('coverletter')">✉️ Cover letter generator</button>
+      <button class="ai-tab" onclick="switchTab('matcher')">🎯 Skill matcher</button>
+    </div>
+
+    <!-- TAB: CHAT -->
+    <div class="ai-panel active" id="tab-chat">
+      <div class="ai-card">
+        <div class="ai-card-title"><span class="ai-spark">💬</span> Ask anything about Vijay</div>
+        <div class="ai-card-desc">Ask about experience, projects, tech decisions, availability, or anything else. The AI answers based on Vijay's actual background.</div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg">
+            <div class="chat-avatar ai">V</div>
+            <div class="chat-bubble ai">Hi! I'm Vijay's AI assistant. Ask me anything about his experience, skills, projects, or background — I'll give you accurate answers based on his 13.5 years of engineering work. 👋</div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input class="ai-input" id="chat-input" type="text" placeholder="e.g. Tell me about the eOCR project..." onkeydown="if(event.key==='Enter')sendChat()"/>
+          <button class="chat-send" id="chat-send-btn" onclick="sendChat()">Send →</button>
+        </div>
+        <div style="margin-top:.75rem;display:flex;flex-wrap:wrap;gap:.4rem">
+          <button class="tl-tag" style="cursor:pointer;border:1px solid rgba(0,212,255,.18);background:rgba(0,212,255,.04)" onclick="quickChat('What is the eOCR project?')">What is eOCR?</button>
+          <button class="tl-tag" style="cursor:pointer;border:1px solid rgba(0,212,255,.18);background:rgba(0,212,255,.04)" onclick="quickChat('What is Azure Content Understanding and what stage is the project in?')">Azure Content Understanding AI?</button>
+          <button class="tl-tag" style="cursor:pointer;border:1px solid rgba(0,212,255,.18);background:rgba(0,212,255,.04)" onclick="quickChat('What payment systems has Vijay integrated?')">Payment integrations?</button>
+          <button class="tl-tag" style="cursor:pointer;border:1px solid rgba(0,212,255,.18);background:rgba(0,212,255,.04)" onclick="quickChat('Describe Vijay\'s cloud and Azure expertise')">Azure expertise?</button>
         </div>
       </div>
+    </div>
 
+    <!-- TAB: COVER LETTER -->
+    <div class="ai-panel" id="tab-coverletter">
+      <div class="ai-card">
+        <div class="ai-card-title"><span class="ai-spark">✉️</span> Cover Letter Generator</div>
+        <div class="ai-card-desc">Paste a job description and get a tailored, professional cover letter written in Vijay's voice — ready to personalise and send.</div>
+        <textarea class="ai-textarea" id="jd-input" placeholder="Paste the job description here...&#10;&#10;e.g. We are looking for a Senior .NET Developer with Azure experience to lead our cloud migration team..."></textarea>
+        <input class="ai-input" id="company-input" type="text" placeholder="Company name (optional)" style="margin-top:.75rem"/>
+        <button class="ai-run-btn" id="cl-btn" onclick="generateCoverLetter()">✉️ Generate Cover Letter</button>
+        <div class="ai-loading" id="cl-loading"><div class="ai-spinner"></div>Writing your cover letter...</div>
+        <div class="ai-output" id="cl-output">
+          <div class="ai-output-label"><span class="dot"></span>Generated Cover Letter</div>
+          <div class="ai-output-box" id="cl-text"></div>
+          <button class="copy-btn" onclick="copyText('cl-text')">Copy to clipboard</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: MATCHER -->
+    <div class="ai-panel" id="tab-matcher">
+      <div class="ai-card">
+        <div class="ai-card-title"><span class="ai-spark">🎯</span> Skill Matcher</div>
+        <div class="ai-card-desc">Paste a job description and instantly see how Vijay's skills align — with a match score, matched skills, and any gaps.</div>
+        <textarea class="ai-textarea" id="matcher-input" placeholder="Paste the job description here...&#10;&#10;e.g. Required: 5+ years .NET Core, Angular, Azure DevOps, Docker, Kubernetes, SQL Server..."></textarea>
+        <button class="ai-run-btn" id="match-btn" onclick="runMatcher()">🎯 Analyse Match</button>
+        <div class="ai-loading" id="match-loading"><div class="ai-spinner"></div>Analysing job requirements...</div>
+        <div class="ai-output" id="match-output">
+          <div class="ai-output-label"><span class="dot"></span>Match Analysis</div>
+          <div class="score-bar">
+            <div class="score-bar-label"><span>Match Score</span><span id="score-pct">–</span></div>
+            <div class="score-track"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
+          </div>
+          <div class="match-results">
+            <div class="match-col green"><h4>✓ Matched Skills</h4><div class="match-tags" id="matched-tags"></div></div>
+            <div class="match-col amber"><h4>△ Skills to highlight / gaps</h4><div class="match-tags" id="gap-tags"></div></div>
+          </div>
+          <div style="margin-top:1.25rem">
+            <div class="ai-output-label" style="margin-bottom:.5rem">Summary</div>
+            <div class="ai-output-box" id="match-summary"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -578,103 +499,231 @@
   <div class="section-inner">
     <div class="contact-card reveal">
       <h2>Let's build something <span style="color:var(--cyan)">great</span></h2>
-      <p>Open to senior engineering, tech lead, and solution architect roles. Based in Chennai, India.</p>
+      <p>Senior Lead Engineer · Full-Stack .NET & Azure specialist · Open to senior engineering, tech lead, and solution architect roles · Chennai, India</p>
       <div class="contact-links">
-        <a href="mailto:vijaysm09@email.com" class="contact-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email me
+        <a href="mailto:vijaysm09@gmail.com" class="contact-link primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          vijaysm09@gmail.com
         </a>
-        <a href="https://www.linkedin.com/in/vijay-s-contact/" class="contact-link" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://vijays-dev.github.io/vijay-portfolio/" class="contact-link" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
+        <a href="tel:+919940345958" class="contact-link">📞 +91-99403-45958</a>
+        <a href="https://linkedin.com/in/vijaysm09" class="contact-link" target="_blank" rel="noopener">in LinkedIn</a>
+        <a href="https://github.com/vijaysm09" class="contact-link" target="_blank" rel="noopener">⌥ GitHub</a>
+        <a href="Vijay_Resume.pdf" download class="contact-link">↓ Resume PDF</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <span>Built with HTML &amp; CSS · Hosted on GitHub Pages · Chennai, India</span>
-</footer>
+<footer>Vijay S · Senior Lead .NET Full-Stack & Cloud Engineer · Chennai · Built with HTML/CSS + Claude AI · Hosted on GitHub Pages</footer>
 
 <script>
-/* ── CONSTELLATION CANVAS ── */
-const canvas = document.getElementById('constellation');
-const ctx = canvas.getContext('2d');
-let nodes = [], W, H, animId;
+/* ── PROFILE DATA ── */
+const VIJAY_PROFILE = `
+You are an AI assistant embedded in Vijay S's portfolio website. Answer questions accurately based ONLY on the following profile. Be concise, professional, and friendly. If something is not in the profile, say you don't have that information.
 
-function resize(){
-  W = canvas.width  = canvas.offsetWidth;
-  H = canvas.height = canvas.offsetHeight;
-}
+PROFILE: Vijay S — Senior Lead .NET Full-Stack & Cloud Engineer
+Location: Chennai, India
+Contact: vijaysm09@gmail.com | +91-99403-45958
+Total Experience: 13.5 years
 
-function initNodes(n){
-  nodes = [];
-  for(let i=0;i<n;i++){
-    nodes.push({
-      x: Math.random()*W,
-      y: Math.random()*H,
-      vx: (Math.random()-.5)*0.3,
-      vy: (Math.random()-.5)*0.3,
-      r: Math.random()*2+1
-    });
-  }
-}
+CURRENT ROLE: Senior Lead Engineer at Relevantz Technology Services (2025–2026)
+- Led intelligent OCR-based document processing platform (eOCR) for NewRez, USA
+- eOCR: mortgage document ingestion and classification with modular plug-and-play components
+- Stack: .NET Core, Angular, Azure Service Bus, Docker, AKS, MS Graph, Key Vault, App Insights, Azure DevOps
+- Currently driving Azure Content Understanding (AI) — started as a POC, now being converted to a main production project for intelligent document understanding and classification in mortgage workflows
 
+PREVIOUS: Senior Lead Software Analyst at Agilysys Technologies (2019–2025)
+- Led PMS enterprise application development: C#, .NET Core, Angular, SQL Server, PostgreSQL
+- Payment integrations: Shift4, FreedomPay, gift cards, loyalty systems
+- Onsite at 3 USA customer locations (~6 months)
+- Projects: Agilysys Activities/Rental (class and rental management), Agilysys SEAT (seat reservation & venue management)
+- Awards: Standout Performer 2024, Warrior 2021 & 2022
+
+PREVIOUS: Technical Lead at HCL Technologies (2015–2019)
+- High-performance apps for Xerox USA using MVC, Angular, SQL Server, WCF, WPF, Jenkins
+- 8 patent submissions at Group 2 level
+- 2nd Prize at HCL Automation Contest
+- Awards: Live Wire 2016 & 2017
+- Projects: ClearSky (Kanban task mgmt), Strings (multi-language translation for Xerox drivers), Xerox Driver Performance (benchmarking), Virtual Lab (Hyper-V VM management)
+
+PREVIOUS: Software Engineer at Infoplus Technologies (2012–2015)
+- E-learning and exam management systems: MVC, ASP.NET, SQL Server, MySQL
+- Projects: E-Learning System, Exam Management System, SEval (Smart Evaluation Process)
+- Award: Best New Kid 2012
+
+SKILLS:
+Backend: .NET Core, C#, ASP.NET, MVC, Web API, Microservices, LINQ, EF/EF Core, Redis, WCF
+Frontend: Angular, TypeScript, React (basic), Redux, JavaScript, jQuery, HTML, CSS, Bootstrap
+Cloud/Azure: App Services, AKS, Service Bus, RabbitMQ, App Insights, Blob Storage, Key Vault, MS Graph, GitHub Copilot, Azure Content Understanding (AI)
+DevOps: Azure DevOps, Docker, Kubernetes, Jenkins, Git, PowerShell, Shell
+Databases: SQL Server, MySQL, Oracle, PostgreSQL
+Languages: C#, TypeScript, Python
+Reporting: RDLC, SSRS, Telerik
+Tools: Visual Studio, VS Code, Hangfire, Coded UI
+Practices: Design Patterns, System Architecture, REST API Standards, Agile/Scrum, Kanban, Team Leadership
+
+EDUCATION: B.Tech in Information Technology — Loyola Institute of Technology, Anna University, Chennai (2007–2011)
+`;
+
+/* ── CONSTELLATION ── */
+const canvas=document.getElementById('constellation');
+const ctx=canvas.getContext('2d');
+let nodes=[],W,H,animId;
+function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight}
+function initNodes(n){nodes=[];for(let i=0;i<n;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()*1.8+.8})}
 function draw(){
   ctx.clearRect(0,0,W,H);
-  // edges
-  for(let i=0;i<nodes.length;i++){
-    for(let j=i+1;j<nodes.length;j++){
-      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
-      const d=Math.sqrt(dx*dx+dy*dy);
-      if(d<160){
-        ctx.beginPath();
-        ctx.moveTo(nodes[i].x,nodes[i].y);
-        ctx.lineTo(nodes[j].x,nodes[j].y);
-        ctx.strokeStyle=`rgba(0,212,255,${(1-d/160)*0.18})`;
-        ctx.lineWidth=0.8;
-        ctx.stroke();
-      }
-    }
+  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+    const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<155){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=`rgba(0,212,255,${(1-d/155)*.15})`;ctx.lineWidth=.7;ctx.stroke()}
   }
-  // dots
-  nodes.forEach(n=>{
-    ctx.beginPath();
-    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-    ctx.fillStyle='rgba(0,212,255,0.55)';
-    ctx.fill();
-    // update
-    n.x+=n.vx; n.y+=n.vy;
-    if(n.x<0||n.x>W) n.vx*=-1;
-    if(n.y<0||n.y>H) n.vy*=-1;
-  });
-  animId = requestAnimationFrame(draw);
+  nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle='rgba(0,212,255,.5)';ctx.fill();n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1});
+  animId=requestAnimationFrame(draw);
+}
+window.addEventListener('resize',()=>{cancelAnimationFrame(animId);resize();initNodes(55);draw()});
+resize();initNodes(55);draw();
+
+/* ── REVEAL ── */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── AI TABS ── */
+function switchTab(name){
+  document.querySelectorAll('.ai-tab').forEach((t,i)=>t.classList.toggle('active',['chat','coverletter','matcher'][i]===name));
+  document.querySelectorAll('.ai-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
 }
 
-window.addEventListener('resize',()=>{
-  cancelAnimationFrame(animId);
-  resize();
-  initNodes(55);
-  draw();
-});
-
-resize(); initNodes(55); draw();
-
-/* ── SCROLL REVEAL ── */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+/* ── CLAUDE API CALL ── */
+async function callClaude(messages, system){
+  const res = await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:system||VIJAY_PROFILE,messages})
   });
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  const data = await res.json();
+  if(!res.ok) throw new Error(data.error?.message||'API error');
+  return data.content.find(b=>b.type==='text')?.text||'';
+}
+
+/* ── CHAT ── */
+let chatHistory = [];
+async function sendChat(){
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if(!q) return;
+  input.value='';
+  addChatMsg(q,'user');
+  input.disabled=true;
+  document.getElementById('chat-send-btn').disabled=true;
+  const thinkEl = addThinking();
+  chatHistory.push({role:'user',content:q});
+  try{
+    const reply = await callClaude(chatHistory);
+    chatHistory.push({role:'assistant',content:reply});
+    thinkEl.remove();
+    addChatMsg(reply,'ai');
+  } catch(e){
+    thinkEl.remove();
+    addChatMsg('Sorry, something went wrong. Please try again.','ai');
+  }
+  input.disabled=false;
+  document.getElementById('chat-send-btn').disabled=false;
+  input.focus();
+}
+function quickChat(q){
+  document.getElementById('chat-input').value=q;
+  sendChat();
+}
+function addChatMsg(text,role){
+  const box=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className=`chat-msg ${role}`;
+  div.innerHTML=`<div class="chat-avatar ${role}">${role==='ai'?'V':'U'}</div><div class="chat-bubble ${role}">${text.replace(/\n/g,'<br>')}</div>`;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+  return div;
+}
+function addThinking(){
+  const box=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className='chat-msg';
+  div.innerHTML=`<div class="chat-avatar ai">V</div><div class="chat-thinking">Thinking<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>`;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+  return div;
+}
+
+/* ── COVER LETTER ── */
+async function generateCoverLetter(){
+  const jd=document.getElementById('jd-input').value.trim();
+  const company=document.getElementById('company-input').value.trim();
+  if(!jd){alert('Please paste a job description first.');return}
+  const btn=document.getElementById('cl-btn');
+  const loading=document.getElementById('cl-loading');
+  const output=document.getElementById('cl-output');
+  btn.disabled=true;loading.classList.add('visible');output.classList.remove('visible');
+  const prompt=`Based on Vijay S's profile below, write a professional, tailored cover letter for this job.
+${company?`Company: ${company}`:''}
+Job Description: ${jd}
+
+Write a compelling 3-4 paragraph cover letter in first person as Vijay. Be specific, reference relevant projects and skills. Do not use generic phrases. End with enthusiasm and a call to action. No subject line needed, start directly with "Dear Hiring Manager," or addressed to the company.`;
+  try{
+    const text=await callClaude([{role:'user',content:prompt}]);
+    document.getElementById('cl-text').textContent=text;
+    output.classList.add('visible');
+  }catch(e){
+    document.getElementById('cl-text').textContent='Error generating cover letter. Please try again.';
+    output.classList.add('visible');
+  }
+  btn.disabled=false;loading.classList.remove('visible');
+}
+
+/* ── SKILL MATCHER ── */
+async function runMatcher(){
+  const jd=document.getElementById('matcher-input').value.trim();
+  if(!jd){alert('Please paste a job description first.');return}
+  const btn=document.getElementById('match-btn');
+  const loading=document.getElementById('match-loading');
+  const output=document.getElementById('match-output');
+  btn.disabled=true;loading.classList.add('visible');output.classList.remove('visible');
+  const prompt=`Analyse how well Vijay S's skills match this job description.
+
+Job Description: ${jd}
+
+Respond ONLY with a valid JSON object (no markdown, no backticks) in this exact format:
+{"score":85,"matched":["skill1","skill2","skill3"],"gaps":["gap1","gap2"],"summary":"2-3 sentence professional summary of the match quality, what makes Vijay strong for this role, and any genuine gaps."}
+
+Score should be 0-100. Matched = skills from Vijay's profile that the JD requires. Gaps = things the JD requires that Vijay doesn't clearly have, or areas to highlight more.`;
+  try{
+    const raw=await callClaude([{role:'user',content:prompt}],
+      `You are a technical recruiter analysing candidate fit. ${VIJAY_PROFILE} Respond only with valid JSON.`);
+    const clean=raw.replace(/```json|```/g,'').trim();
+    const data=JSON.parse(clean);
+    document.getElementById('score-pct').textContent=data.score+'%';
+    document.getElementById('score-fill').style.width=data.score+'%';
+    const mt=document.getElementById('matched-tags');
+    const gt=document.getElementById('gap-tags');
+    mt.innerHTML='';gt.innerHTML='';
+    (data.matched||[]).forEach(s=>{const sp=document.createElement('span');sp.className='match-tag hit';sp.textContent=s;mt.appendChild(sp)});
+    (data.gaps||[]).forEach(s=>{const sp=document.createElement('span');sp.className='match-tag miss';sp.textContent=s;gt.appendChild(sp)});
+    document.getElementById('match-summary').textContent=data.summary||'';
+    output.classList.add('visible');
+  }catch(e){
+    document.getElementById('match-summary').textContent='Error analysing match. Please try again.';
+    output.classList.add('visible');
+  }
+  btn.disabled=false;loading.classList.remove('visible');
+}
+
+/* ── COPY ── */
+function copyText(id){
+  const el=document.getElementById(id);
+  navigator.clipboard.writeText(el.textContent).then(()=>{
+    const btns=document.querySelectorAll('.copy-btn');
+    btns.forEach(b=>{if(b.previousElementSibling===el||b.closest('.ai-card').querySelector('#'+id)){b.textContent='Copied!';setTimeout(()=>b.textContent='Copy to clipboard',2000)}});
+  });
+}
 </script>
 </body>
 </html>
